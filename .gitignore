@@ -1,0 +1,21 @@
+# Node / Expo
+mobile/node_modules/
+mobile/.expo/
+mobile/.expo-shared/
+mobile/dist/
+mobile/.env
+
+# Android/iOS (如未来 eject)
+android/
+ios/
+
+# Java / Spring
+server/target/
+server/.idea/
+server/.settings/
+server/.classpath
+server/.project
+
+# 系统文件
+.DS_Store
+Thumbs.db
