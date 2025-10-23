@@ -1,9 +1,5 @@
 ﻿# Node / Expo
-mobile/node_modules/
-mobile/.expo/
-mobile/.expo-shared/
-mobile/dist/
-mobile/.env
+
 
 # Android/iOS (如未来 eject)
 android/
