@@ -93,8 +93,9 @@ mvn clean spring-boot:run
 # => http://localhost:8080
 Change port:
 mvn spring-boot:run -Dserver.port=8081
-
+---
 ### 4.2 Mobile (Expo)
+
 Prereqs: Node 18 LTS, npm 9/10, Expo Go (phone) or emulator
 ```powershell
 cd mobile
