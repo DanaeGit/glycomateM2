@@ -67,91 +67,67 @@ API_URL=http://192.168.xx.yy:8080
 Run:
 ```powershell
 npx expo start
-Press a (Android emulator) or scan QR in Expo Go.
 ```
-Phone and PC must be on the same Wi-Fi.
+- Press a (Android emulator) or scan QR in Expo Go.
+- Phone and PC must be on the same Wi-Fi.
 
-Common pitfalls
-Don’t use localhost for a phone; use PC LAN IP (ipconfig).
-If CORS/network errors → allow Java in Windows Firewall.
+**Common pitfalls**
+- Don’t use localhost for a phone; use PC LAN IP (ipconfig).
+- If CORS/network errors → allow Java in Windows Firewall.
 
-##5. Program Logic (Core)
-###5.1 Energy balance (server/infra/CalcService.java)
-Inputs: intake (kcal), activity (steps/minutes → kcal).
-Output: netKcal = intakeKcal – expenditureKcal and advice:
-|netKcal| < 150 → “On track—nice job.”
-|netKcal| ≥ 150 → “Slight surplus—consider a short walk.”
-|netKcal| ≤ -150 → “Slight deficit—remember to refuel.”
-Expenditure uses a lightweight estimate (e.g., steps × factor or minutes × MET × weight). For demo, weight/MET are constants.
+---
 
-###5.2 Auth flow (server/view/AuthController.java)
-POST /auth/login → returns demo token.
-POST /auth/reset → returns 200 OK (simulated email reset).
+## 5. Program Logic (Core)
+### 5.1 Energy balance (server/infra/CalcService.java)
+- Inputs: intake (kcal), activity (steps/minutes → kcal).
+- Output: netKcal = intakeKcal – expenditureKcal and advice:
+  - |netKcal| < 150 → “On track—nice job.”
+  - |netKcal| ≥ 150 → “Slight surplus—consider a short walk.”
+  - |netKcal| ≤ -150 → “Slight deficit—remember to refuel.”
+Expenditure uses a lightweight estimate (e.g., steps × factor or minutes × MET × weight).
+ For demo, weight/MET are constants.
+---
+### 5.2 Auth flow (server/view/AuthController.java)
+- POST /auth/login → returns demo token.
+- POST /auth/reset → returns 200 OK (simulated email reset).
 
-###5.3 Insights (server/view/ReportController.java)
+---
+
+### 5.3 Insights (server/view/ReportController.java)
 Returns latest computed message for the Daily Insights screen.
 
-##6.Environment & Configuration
-Mobile (/mobile/.env)
+---
+
+## 6.Environment & Configuration
+**Mobile** (/mobile/.env)
+```ini
 API_URL=http://<LAN-IP>:8080
+```
+
 Restart Expo after changes or npx expo start -c.
-Server (/server/src/main/resources/application.properties)
-Port, logging level, CORS.
+**Server** (/server/src/main/resources/application.properties)
+- Port, logging level, CORS.
 Run-time override: -Dserver.port=8081.
 
-##7. Quality, Testing & Lint
-Frontend
-Functional focus: step flow correctness, validation, API error banners.
-Optional unit tests for helpers in src/api/* (formatKcal, calcSuggestion).
+---
+
+## 7. Quality, Testing & Lint
+**Frontend**
+- Functional focus: step flow correctness, validation, API error banners.
+- Optional unit tests for helpers in src/api/* (formatKcal, calcSuggestion).
+```bash
 npm run lint
 npm run fix
-
-Backend
-Unit tests for CalcService (positive/boundary/error).
+```
+**Backend**
+- Unit tests for CalcService (positive/boundary/error).
+```bash
 mvn clean package
+```
 
-##8. Troubleshooting
-Network: Use LAN IP, confirm server alive in browser, allow Java through firewall.
-Metro cache: npx expo start -c
-CORS: check server CORS config.
-Port busy: change server port & update API_URL.
-
-##9. License
-MIT
-
----
-
-# 2) `mobile/README.md`
-```markdown
-# GlycoMate Mobile
-
-## Start (Expo)
-```powershell
-cd mobile
-npm install
-copy .env.example .env
-# set your PC IPv4 in .env
-npx expo start
-Press a (Android emulator) or scan QR in Expo Go.
-Phone and PC must be on the same Wi-Fi.
-
-Env
-API_URL=http://<LAN-IP>:8080
-
-
----
-
-# 3) `server/README.md`
-```markdown
-# GlycoMate Server
-
-## Run (Spring Boot)
-**Prereqs**: JDK 17, Maven 3.9+
-```powershell
-cd server
-mvn clean spring-boot:run
-# => http://localhost:8080
-Change port:
-```powershell  
-mvn spring-boot:run -Dserver.port=8081
+## 8. Troubleshooting
+- Network: Use LAN IP, confirm server alive in browser, allow Java through firewall.
+- Metro cache: npx expo start -c
+- CORS: check server CORS config.
+- Port busy: change server port & update API_URL.
 
