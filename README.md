@@ -67,8 +67,6 @@ Non-goals (deferred): photo-based meal recognition, full nutrition database, dev
 │
 ├─ docs/ # Optional: diagrams & screenshots
 └─ README.md
-
-
 ---
 
 ## 3. Architecture (MVVM in practice)
@@ -91,6 +89,7 @@ Why MVVM:
 cd server
 mvn clean spring-boot:run
 # => http://localhost:8080
+---
 Change port:
 mvn spring-boot:run -Dserver.port=8081
 ---
