@@ -104,7 +104,7 @@ cd mobile
 npm install
 copy .env.example .env
 ```
-Edit mobile/.env:
+Edit `mobile`/.env:
 ```ini
 #use your PC’s LAN IPv4 so a phone can reach the server
 API_URL=http://192.168.xx.yy:8080
@@ -117,7 +117,7 @@ npx expo start
 - Phone and PC must be on the same Wi-Fi.
 
 **Common pitfalls**
-- Don’t use localhost for a phone; use PC LAN IP (ipconfig).
+- Don’t use `localhost` for a phone; use PC LAN IP (`ipconfig`).
 - If CORS/network errors → allow Java in Windows Firewall.
 
 ---
@@ -125,16 +125,16 @@ npx expo start
 ## 5. Program Logic (Core)
 ### 5.1 Energy balance (server/infra/CalcService.java)
 - Inputs: intake (kcal), activity (steps/minutes → kcal).
-- Output: netKcal = intakeKcal – expenditureKcal and advice:
-  - |netKcal| < 150 → “On track—nice job.”
-  - |netKcal| ≥ 150 → “Slight surplus—consider a short walk.”
-  - |netKcal| ≤ -150 → “Slight deficit—remember to refuel.”
+- Output: `netKcal = intakeKcal – expenditureKcal` and advice:
+  - `|netKcal| < 150` → “On track—nice job.”
+  - `|netKcal| ≥ 150` → “Slight surplus—consider a short walk.”
+  - `|netKcal| ≤ -150` → “Slight deficit—remember to refuel.”
 Expenditure uses a lightweight estimate (e.g., steps × factor or minutes × MET × weight).
  For demo, weight/MET are constants.
 ---
 ### 5.2 Auth flow (server/view/AuthController.java)
-- POST /auth/login → returns demo token.
-- POST /auth/reset → returns 200 OK (simulated email reset).
+- `POST /auth/login` → returns demo token.
+- `POST /auth/reset` → returns `200` OK (simulated email reset).
 
 ---
 
@@ -144,13 +144,13 @@ Returns latest computed message for the Daily Insights screen.
 ---
 
 ## 6.Environment & Configuration
-**Mobile** (/mobile/.env)
+**Mobile** (`/mobile/.env`)
 ```ini
 API_URL=http://<LAN-IP>:8080
 ```
 
-Restart Expo after changes or npx expo start -c.
-**Server** (/server/src/main/resources/application.properties)
+Restart Expo after changes or `npx expo start -c`.
+**Server** (`/server/src/main/resources/application.properties`)
 - Port, logging level, CORS.
 Run-time override: -Dserver.port=8081.
 
@@ -159,20 +159,20 @@ Run-time override: -Dserver.port=8081.
 ## 7. Quality, Testing & Lint
 **Frontend**
 - Functional focus: step flow correctness, validation, API error banners.
-- Optional unit tests for helpers in src/api/* (formatKcal, calcSuggestion).
+- Optional unit tests for helpers in `src/api/`* (`formatKcal`, `calcSuggestion`).
 ```bash
 npm run lint
 npm run fix
 ```
 **Backend**
-- Unit tests for CalcService (positive/boundary/error).
+- Unit tests for `CalcService` (positive/boundary/error).
 ```bash
 mvn clean package
 ```
 
 ## 8. Troubleshooting
 - Network: Use LAN IP, confirm server alive in browser, allow Java through firewall.
-- Metro cache: npx expo start -c
+- Metro cache: `npx expo start -c`
 - CORS: check server CORS config.
-- Port busy: change server port & update API_URL.
+- Port busy: change server port & update `API_URL`.
 
