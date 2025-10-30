@@ -22,51 +22,7 @@ Non-goals (deferred): photo-based meal recognition, full nutrition database, dev
 ---
 
 ## 2. Repository Structure
-.
-├─ mobile/ # React Native (Expo)
-│ ├─ App.tsx
-│ ├─ app.json / app.config.ts
-│ ├─ .env.example # copy to .env and set API_URL
-│ └─ src/
-│ ├─ api/ # API client + viewmodel hooks
-│ │ ├─ client.ts # base axios/fetch client (reads API_URL)
-│ │ ├─ auth.ts # login/reset requests
-│ │ └─ calc.ts # intake/activity/compute requests
-│ ├─ components/ # shared UI (Button, TextField, Card, etc.)
-│ ├─ navigation/ # stack/tab navigator
-│ └─ screens/ # Views
-│ ├─ auth/
-│ │ ├─ LoginScreen.tsx
-│ │ └─ ResetPasswordScreen.tsx
-│ ├─ calorie/
-│ │ ├─ IntakeStepScreen.tsx
-│ │ ├─ ActivityStepScreen.tsx
-│ │ ├─ ResultScreen.tsx
-│ │ └─ ReviewStepScreen.tsx
-│ └─ insights/
-│ └─ DailyInsightsScreen.tsx
-│
-├─ server/ # Spring Boot
-│ ├─ pom.xml
-│ └─ src/main/java/com/glycomate/
-│ ├─ config/ # CORS, minimal security
-│ ├─ domain/ # Entities/DTOs
-│ │ ├─ AuthDtos.java # LoginRequest, ResetRequest, AuthResponse
-│ │ ├─ CalcDtos.java # IntakeDto, ActivityDto, ComputeRequest, ComputeResponse
-│ │ └─ InsightDtos.java # InsightDto
-│ ├─ infra/ # Repositories/Services (in-memory demo)
-│ │ ├─ AuthService.java
-│ │ ├─ CalcService.java # core energy balance logic
-│ │ └─ InsightService.java
-│ ├─ view/ # Controllers (REST)
-│ │ ├─ AuthController.java
-│ │ ├─ CalcController.java
-│ │ ├─ HealthController.java
-│ │ └─ ReportController.java
-│ └─ viewmodel/ # Response mappers / VMs
-│
-├─ docs/ # Optional: diagrams & screenshots
-└─ README.md
+
 ---
 
 ## 3. Architecture (MVVM in practice)
@@ -89,25 +45,30 @@ Why MVVM:
 cd server
 mvn clean spring-boot:run
 # => http://localhost:8080
----
+```
 Change port:
+```powershell
 mvn spring-boot:run -Dserver.port=8081
+```
 ---
 ### 4.2 Mobile (Expo)
 
-Prereqs: Node 18 LTS, npm 9/10, Expo Go (phone) or emulator
+**Prereqs**: Node 18 LTS, npm 9/10, Expo Go (phone) or emulator
 ```powershell
 cd mobile
 npm install
 copy .env.example .env
+```
 Edit mobile/.env:
-# use your PC’s LAN IPv4 so a phone can reach the server
+```ini
+#use your PC’s LAN IPv4 so a phone can reach the server
 API_URL=http://192.168.xx.yy:8080
+```ini
 Run:
 ```powershell
 npx expo start
 Press a (Android emulator) or scan QR in Expo Go.
-
+```
 Phone and PC must be on the same Wi-Fi.
 
 Common pitfalls
