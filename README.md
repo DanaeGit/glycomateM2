@@ -63,7 +63,7 @@ Edit mobile/.env:
 ```ini
 #use your PC’s LAN IPv4 so a phone can reach the server
 API_URL=http://192.168.xx.yy:8080
-```ini
+```
 Run:
 ```powershell
 npx expo start
