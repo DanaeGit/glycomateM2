@@ -67,8 +67,8 @@ npx expo start
 - Inputs: intake (kcal), activity (steps/minutes → kcal).
 - Output: `netKcal = intakeKcal – expenditureKcal` and advice:
   - `|netKcal| < 150` → “On track—nice job.”
-  - `|netKcal| ≥ 150` → “Slight surplus—consider a short walk.”
-  - `|netKcal| ≤ -150` → “Slight deficit—remember to refuel.”
+  - `netKcal ≥ 150` → “Slight surplus—consider a short walk.”
+  - `netKcal ≤ -150` → “Slight deficit—remember to refuel.”
 Expenditure uses a lightweight estimate (e.g., steps × factor or minutes × MET × weight).
  For demo, weight/MET are constants.
 ---
