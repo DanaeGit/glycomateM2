@@ -21,70 +21,10 @@ Non-goals (deferred): photo-based meal recognition, full nutrition database, dev
 
 ---
 
-## 2. Repository Structure
-```
-├─ mobile/ # React Native (Expo)
-│ ├─ App.tsx
-│ ├─ app.json / app.config.ts
-│ ├─ .env.example # copy to .env and set API_URL
-│ └─ src/
-│ ├─ api/ # API client + viewmodel hooks
-│ │ ├─ client.ts # base axios/fetch client (reads API_URL)
-│ │ ├─ auth.ts # login/reset requests
-│ │ └─ calc.ts # intake/activity/compute requests
-│ ├─ components/ # shared UI (Button, TextField, Card, etc.)
-│ ├─ navigation/ # stack/tab navigator
-│ └─ screens/ # Views
-│ ├─ auth/
-│ │ ├─ LoginScreen.tsx
-│ │ └─ ResetPasswordScreen.tsx
-│ ├─ calorie/
-│ │ ├─ IntakeStepScreen.tsx
-│ │ ├─ ActivityStepScreen.tsx
-│ │ ├─ ResultScreen.tsx
-│ │ └─ ReviewStepScreen.tsx
-│ └─ insights/
-│ └─ DailyInsightsScreen.tsx
-│
-├─ server/ # Spring Boot
-│ ├─ pom.xml
-│ └─ src/main/java/com/glycomate/
-│ ├─ config/ # CORS, minimal security
-│ ├─ domain/ # Entities/DTOs
-│ │ ├─ AuthDtos.java # LoginRequest, ResetRequest, AuthResponse
-│ │ ├─ CalcDtos.java # IntakeDto, ActivityDto, ComputeRequest, ComputeResponse
-│ │ └─ InsightDtos.java # InsightDto
-│ ├─ infra/ # Repositories/Services (in-memory demo)
-│ │ ├─ AuthService.java
-│ │ ├─ CalcService.java # core energy balance logic
-│ │ └─ InsightService.java
-│ ├─ view/ # Controllers (REST)
-│ │ ├─ AuthController.java
-│ │ ├─ CalcController.java
-│ │ ├─ HealthController.java
-│ │ └─ ReportController.java
-│ └─ viewmodel/ # Response mappers / VMs
-│
-├─ docs/
-└─ README.md
-```
----
 
-## 3. Architecture (MVVM in practice)
+## 2. How to Run (Local Development)
 
-- **View (mobile/src/screens/…)**: renders UI, collects input, reacts to ViewModel state.  
-- **ViewModel (mobile/src/api/… + page hooks)**: orchestrates validation, shapes requests/responses, holds transient state, calls API client.  
-- **Model/Repositories (server/infra, server/domain)**: implements business logic (energy math), stores transient data (in-memory for demo), prepares DTOs.
-
-Why MVVM:
-- Keeps **UI** lean; puts **business/state** in ViewModel & services.
-- React components bind to ViewModel state (props/hooks) → simpler testing & refactoring.
-
----
-
-## 4. How to Run (Local Development)
-
-### 4.1 Backend (Spring Boot)
+### 2.1 Backend (Spring Boot)
 **Prereqs**: JDK 17, Maven 3.9+
 ```powershell
 cd server
@@ -96,7 +36,7 @@ Change port:
 mvn spring-boot:run -Dserver.port=8081
 ```
 ---
-### 4.2 Mobile (Expo)
+### 2.2 Mobile (Expo)
 
 **Prereqs**: Node 18 LTS, npm 9/10, Expo Go (phone) or emulator
 ```powershell
@@ -122,8 +62,8 @@ npx expo start
 
 ---
 
-## 5. Program Logic (Core)
-### 5.1 Energy balance (server/infra/CalcService.java)
+## 3. Program Logic (Core)
+### 3.1 Energy balance (server/infra/CalcService.java)
 - Inputs: intake (kcal), activity (steps/minutes → kcal).
 - Output: `netKcal = intakeKcal – expenditureKcal` and advice:
   - `|netKcal| < 150` → “On track—nice job.”
@@ -132,18 +72,18 @@ npx expo start
 Expenditure uses a lightweight estimate (e.g., steps × factor or minutes × MET × weight).
  For demo, weight/MET are constants.
 ---
-### 5.2 Auth flow (server/view/AuthController.java)
+### 3.2 Auth flow (server/view/AuthController.java)
 - `POST /auth/login` → returns demo token.
 - `POST /auth/reset` → returns `200` OK (simulated email reset).
 
 ---
 
-### 5.3 Insights (server/view/ReportController.java)
+### 3.3 Insights (server/view/ReportController.java)
 Returns latest computed message for the Daily Insights screen.
 
 ---
 
-## 6.Environment & Configuration
+## 4.Environment & Configuration
 **Mobile** (`/mobile/.env`)
 ```ini
 API_URL=http://<LAN-IP>:8080
@@ -156,7 +96,7 @@ Run-time override: -Dserver.port=8081.
 
 ---
 
-## 7. Quality, Testing & Lint
+## 5. Quality, Testing & Lint
 **Frontend**
 - Functional focus: step flow correctness, validation, API error banners.
 - Optional unit tests for helpers in `src/api/`* (`formatKcal`, `calcSuggestion`).
@@ -170,7 +110,7 @@ npm run fix
 mvn clean package
 ```
 
-## 8. Troubleshooting
+## 6. Troubleshooting
 - Network: Use LAN IP, confirm server alive in browser, allow Java through firewall.
 - Metro cache: `npx expo start -c`
 - CORS: check server CORS config.
