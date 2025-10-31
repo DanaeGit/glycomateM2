@@ -1,0 +1,71 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
+  <diagram name="第 1 页" id="oz_eIqZ_GM2-UNSUR-q5">
+    <mxGraphModel dx="1288" dy="915" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-1" value="&lt;span style=&quot;font-weight: 700; text-wrap-mode: nowrap;&quot;&gt;End-User Devices&lt;/span&gt;" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="230" y="220" width="260" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-2" value="Android Phone&amp;nbsp;&lt;br&gt;«artifact» GlycoMate.apk" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="275" y="270" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-3" value="iPhone (iOS 17)&lt;br&gt;«artifact» GlycoMate.ipa" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="275" y="340" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-4" value="&lt;span style=&quot;font-weight: 700; text-wrap-mode: nowrap;&quot;&gt;App Cluster (Kubernetes)&lt;/span&gt;" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="550" y="220" width="650" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-5" value="«artifact»&amp;nbsp;&lt;div&gt;REST/BFF Service.jar&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="275.5" width="200" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-6" value="«artifact»&amp;nbsp;&lt;div&gt;Auth Service.jar&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="275.5" width="200" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-7" value="«artifact»&amp;nbsp;&lt;div&gt;Nutrition Calculator.jar&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="380" width="200" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-8" value="«artifact»&amp;nbsp;&lt;div&gt;Insights Engine.jar&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="380" width="200" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-9" value="«artifact»&amp;nbsp;&lt;div&gt;REST/BFF Service.jar&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="280" width="110" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-10" value="&lt;span style=&quot;font-weight: 700; text-wrap-mode: nowrap;&quot;&gt;External Services&lt;/span&gt;" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="620" y="520" width="515" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-11" value="&lt;div&gt;《service》&lt;/div&gt;NutritionFacts API" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="580" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-12" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;«&lt;/span&gt;service&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;»&amp;nbsp;&lt;/span&gt;&lt;/div&gt;Activity/METs API" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="580" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-13" value="&lt;span style=&quot;text-wrap-mode: nowrap;&quot;&gt;&lt;b&gt;DB Divce&lt;/b&gt;&lt;/span&gt;" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="220" width="335" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-14" value="«database» RDBMS&lt;div&gt;&amp;nbsp;(MySQL 8 / Oracle 12c)&lt;/div&gt;" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=light-dark(#0d0d0d, #c5a1ff);" vertex="1" parent="1">
+          <mxGeometry x="1300" y="280" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-15" value="Https" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="490" y="320" as="sourcePoint" />
+            <mxPoint x="550" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-16" value="JDBC" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="1200" y="330" as="sourcePoint" />
+            <mxPoint x="1260" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gqBNrscvsP5MRxIS_mFC-17" value="" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" target="gqBNrscvsP5MRxIS_mFC-10">
+          <mxGeometry x="-0.0366" width="80" relative="1" as="geometry">
+            <mxPoint x="883" y="480" as="sourcePoint" />
+            <mxPoint x="870" y="480" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
